@@ -1670,7 +1670,23 @@ ge13ca993e8ccb9ba9847cc330696e02839f328f7/jemalloc"))
                             "vendor/tempfile-3.20.0/Cargo.toml"
                             "vendor/tempfile-3.21.0/Cargo.toml")
                (("features = \\[\"fs\"" all)
-                (string-append all ", \"use-libc\""))))))))))
+                (string-append all ", \"use-libc\"")))))))
+      (arguments
+       (substitute-keyword-arguments (package-arguments base-rust)
+         ((#:phases phases)
+          `(modify-phases ,phases
+             (replace 'install
+               ;; Use ./x.py install for Rust 1.91+ instead of manually
+               ;; copying files, as the build output structure changed.
+               (lambda* (#:key outputs #:allow-other-keys)
+                 (let ((out (assoc-ref outputs "out"))
+                       (cargo-out (assoc-ref outputs "cargo")))
+                   (invoke "./x.py" "install" "rustc" "std")
+                   ;; Install cargo to its separate output
+                   (substitute* "config.toml"
+                     (("prefix = \"[^\"]*\"")
+                      (format #f "prefix = ~s" cargo-out)))
+                   (invoke "./x.py" "install" "cargo")))))))))))
 
 (define-public rust-1.92
   (let ((base-rust
