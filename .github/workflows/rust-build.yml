@@ -1,0 +1,75 @@
+name: Test Rust packages
+
+on:
+  push:
+    branches:
+      - rust-1.93.0
+      - rust-*
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-rust:
+    name: Build rust@${{ matrix.version }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      matrix:
+        version:
+          - "1.91"
+          - "1.92"
+          - "1.93"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Guix cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/guix
+          key: guix-cache-rust-${{ matrix.version }}-${{ github.sha }}
+          restore-keys: |
+            guix-cache-rust-${{ matrix.version }}-
+            guix-cache-rust-
+
+      - name: Install Guix
+        uses: sbellem/guix-install-action@dev
+        with:
+          version: "1.5.0"
+          channels: |-
+            (list (channel
+                   (name 'guix)
+                   (url "file://${{ github.workspace }}")
+                   (branch "${{ github.ref_name }}")))
+
+      - name: Test rust@${{ matrix.version }} (dry-run)
+        run: |
+          guix build -e '(@@ (gnu packages rust) rust-${{ matrix.version }})' --dry-run
+
+      - name: Build rust@${{ matrix.version }}
+        run: |
+          guix build -e '(@@ (gnu packages rust) rust-${{ matrix.version }})' \
+            --substitute-urls="https://ci.guix.moe https://bordeaux.guix.gnu.org"
+
+      - name: Is Build Deterministic?
+        id: deterministic-build-check
+        run: |
+          guix build -e '(@@ (gnu packages rust) rust-${{ matrix.version }})' --rounds=2
+
+      - name: Debug non-reproducibility
+        if: failure() && steps.deterministic-build-check.outcome == 'failure'
+        run: |
+          echo "=== Reproducibility check failed ==="
+          echo "The build succeeded but produces different outputs on repeated builds."
+          echo ""
+          echo "=== Attempting diffoscope analysis ==="
+          STORE_PATH=$(guix build -e '(@@ (gnu packages rust) rust-${{ matrix.version }})' 2>/dev/null)
+          if [ -n "$STORE_PATH" ] && [ -d "${STORE_PATH}.check" ]; then
+            guix shell diffoscope -- diffoscope "$STORE_PATH" "${STORE_PATH}.check" || true
+          else
+            echo "Could not find .check path for diffoscope comparison"
+          fi
