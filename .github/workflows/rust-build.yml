@@ -53,7 +53,8 @@ jobs:
 
       - name: Guix pull (with auth disabled for fork)
         run: |
-          sudo guix pull --disable-authentication -C /tmp/channels.scm
+          sudo /var/guix/profiles/per-user/root/current-guix/bin/guix pull \
+            --disable-authentication -C /tmp/channels.scm
 
       - name: Test rust@${{ matrix.version }} (dry-run)
         run: |
