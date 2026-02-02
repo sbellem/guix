@@ -40,11 +40,20 @@ jobs:
         uses: sbellem/guix-install-action@dev
         with:
           version: "1.5.0"
-          channels: |-
-            (list (channel
-                   (name 'guix)
-                   (url "file://${{ github.workspace }}")
-                   (branch "${{ github.ref_name }}")))
+          pullAfterInstall: false
+
+      - name: Create channels file
+        run: |
+          cat > /tmp/channels.scm << 'EOF'
+          (list (channel
+                 (name 'guix)
+                 (url "file://${{ github.workspace }}")
+                 (branch "${{ github.ref_name }}")))
+          EOF
+
+      - name: Guix pull (with auth disabled for fork)
+        run: |
+          sudo guix pull --disable-authentication -C /tmp/channels.scm
 
       - name: Test rust@${{ matrix.version }} (dry-run)
         run: |
