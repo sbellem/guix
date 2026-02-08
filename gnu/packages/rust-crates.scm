@@ -18053,34 +18053,6 @@
   (crate-source "send_wrapper" "0.6.0"
                 "0wrxzsh9fzgkkkms621ydnz8mj30ilyq299a8cf65jn1y72hw2yd"))
 
-(define rust-serde-1.0.204
-  (crate-source "serde" "1.0.204"
-                "04kwpwqz559xlhxkggmm8rjxqgywy5swam3kscwsicnbw1cgaxmw"))
-
-(define rust-serde-bytes-0.11.19
-  (crate-source "serde_bytes" "0.11.19"
-                "1a1y1v0r9akqyvprxnmpgc0i8wybqqpvgi01mi8qxn3rkrq41m55"))
-
-(define rust-serde-derive-1.0.204
-  (crate-source "serde_derive" "1.0.204"
-                "08p25262mbmhsr2cg0508d5b1wvljj956rvpg0v3qgg6gc8pxkg0"))
-
-(define rust-serde-json-1.0.122
-  (crate-source "serde_json" "1.0.122"
-                "1nk8phyvwmhrmcbwdr8rbjd9bqp8np62dcbnhisgymqwjl1n4jvq"))
-
-(define rust-serde-json-1.0.149
-  (crate-source "serde_json" "1.0.149"
-                "11jdx4vilzrjjd1dpgy67x5lgzr0laplz30dhv75lnf5ffa07z43"))
-
-(define rust-serde-spanned-1.0.0
-  (crate-source "serde_spanned" "1.0.0"
-                "10rv91337k8x8zmfir4h8aiwmwgkq07gdv7h0jxhcwwgk10lqws0"))
-
-(define rust-serde-xml-rs-0.6.0
-  (crate-source "serde-xml-rs" "0.6.0"
-                "10i7dvd0c1clj4jbljd08qs8466nlymx7ma7k3ncksx1rn7affpv"))
-
 (define rust-sensors-0.2.2
   (crate-source "sensors" "0.2.2"
                 "1l6nvmbbbbl9mdkd9806mmls68d6hvqb2nl0nm14chva5xwz8fks"))
@@ -18253,6 +18225,10 @@
   (crate-source "serde" "1.0.188"
                 "17jlqzfhimsk8w37ifjwnm86nwjzawlbgwmwc7nhwdwslv5hz7ng"))
 
+(define rust-serde-1.0.204
+  (crate-source "serde" "1.0.204"
+                "04kwpwqz559xlhxkggmm8rjxqgywy5swam3kscwsicnbw1cgaxmw"))
+
 (define rust-serde-1.0.215
   (crate-source "serde" "1.0.215"
                 "13xqkw93cw9rnbkm0zy1apnilzq7l2xf1qw8m1nkga8i1fnw24v5"))
@@ -18309,6 +18285,10 @@
   (crate-source "serde_bytes" "0.11.17"
                 "15kds0mw19lvm8ydd1qbharh5rz96zir06yn2silqbfy3cigsdw4"))
 
+(define rust-serde-bytes-0.11.19
+  (crate-source "serde_bytes" "0.11.19"
+                "1a1y1v0r9akqyvprxnmpgc0i8wybqqpvgi01mi8qxn3rkrq41m55"))
+
 (define rust-serde-cbor-0.11.2
   (crate-source "serde_cbor" "0.11.2"
                 "1xf1bq7ixha30914pd5jl3yw9v1x6car7xgrpimvfvs5vszjxvrb"
@@ -18337,6 +18317,10 @@
 (define rust-serde-derive-1.0.188
   (crate-source "serde_derive" "1.0.188"
                 "1wjaclvsfxgqnnnykllvb5gffsxynk66x6h4c1ds6anq8b37mjjf"))
+
+(define rust-serde-derive-1.0.204
+  (crate-source "serde_derive" "1.0.204"
+                "08p25262mbmhsr2cg0508d5b1wvljj956rvpg0v3qgg6gc8pxkg0"))
 
 (define rust-serde-derive-1.0.215
   (crate-source "serde_derive" "1.0.215"
@@ -18386,6 +18370,10 @@
   (crate-source "serde_json" "1.0.105"
                 "0q73miix7rmja8vss57s42dm7a2xpngyx7gcpinksmi7mkhm2cb9"))
 
+(define rust-serde-json-1.0.122
+  (crate-source "serde_json" "1.0.122"
+                "1nk8phyvwmhrmcbwdr8rbjd9bqp8np62dcbnhisgymqwjl1n4jvq"))
+
 (define rust-serde-json-1.0.133
   (crate-source "serde_json" "1.0.133"
                 "0xz3bswa527wln3fy0qb7y081nx3cp5yy1ggjhi6n5mrfcjfpz67"))
@@ -18405,6 +18393,10 @@
 (define rust-serde-json-1.0.145
   (crate-source "serde_json" "1.0.145"
                 "1767y6kxjf7gwpbv8bkhgwc50nhg46mqwm9gy9n122f7v1k6yaj0"))
+
+(define rust-serde-json-1.0.149
+  (crate-source "serde_json" "1.0.149"
+                "11jdx4vilzrjjd1dpgy67x5lgzr0laplz30dhv75lnf5ffa07z43"))
 
 (define rust-serde-json-1.0.99
   (crate-source "serde_json" "1.0.99"
@@ -18521,6 +18513,10 @@
 (define rust-serde-with-macros-3.14.0
   (crate-source "serde_with_macros" "3.14.0"
                 "03xk9ghj2s6n331r565mgh22w0749vnq50094nd0vkk5cmg9946y"))
+
+(define rust-serde-xml-rs-0.6.0
+  (crate-source "serde-xml-rs" "0.6.0"
+                "10i7dvd0c1clj4jbljd08qs8466nlymx7ma7k3ncksx1rn7affpv"))
 
 (define rust-serde-yaml-0.8.26
   (crate-source "serde_yaml" "0.8.26"
