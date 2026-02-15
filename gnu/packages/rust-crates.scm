@@ -3256,14 +3256,6 @@
   (crate-source "clap" "4.5.57"
                 "06p3x91f3yq4lz80lc0z56mmz314sbizdsymcmd31f9zkr4ym6b8"))
 
-(define rust-clap-4.5.56
-  (crate-source "clap" "4.5.56"
-                "03mynk7b90qcl6rv9cji84vpsgjhgc3wa96cgaai8fp361jacp57"))
-
-(define rust-clap-4.5.57
-  (crate-source "clap" "4.5.57"
-                "06p3x91f3yq4lz80lc0z56mmz314sbizdsymcmd31f9zkr4ym6b8"))
-
 (define rust-clap-builder-4.3.21
   (crate-source "clap_builder" "4.3.21"
                 "1am4bavjhp26pv0ymsprmdqdw44sxdi8abi03ywaj0czbsmz3a88"))
@@ -3343,14 +3335,6 @@
 (define rust-clap-builder-4.5.54
   (crate-source "clap_builder" "4.5.54"
                 "001cnl5ccva6z3x5nw3m72zs3bzb650anz1scs7vqhbs5d6wyhps"))
-
-(define rust-clap-builder-4.5.56
-  (crate-source "clap_builder" "4.5.56"
-                "1w1xwq9qlzbp2zxvk38wvhy73gpxwmcbi00himha0033zb3hfckr"))
-
-(define rust-clap-builder-4.5.57
-  (crate-source "clap_builder" "4.5.57"
-                "0f728m14vqrvcpp8pxmaz74c5dh1gd2bh5jd6sl64nhrh2vch4kv"))
 
 (define rust-clap-builder-4.5.56
   (crate-source "clap_builder" "4.5.56"
@@ -27075,17 +27059,13 @@
   (crate-source "zmij" "1.0.16"
                 "0r8swld9cwnyvdfamq4063ngwxdzckg4922ayk7likma4mc19kfz"))
 
-(define rust-zmij-1.0.18
-  (crate-source "zmij" "1.0.18"
-                "0522yrc7zzvhpvik8r0kg07c2hcjj87hwkd7d5yrhxhz5jnghrhr"))
-
-(define rust-zmij-1.0.19
-  (crate-source "zmij" "1.0.19"
-                "0i9lpsfa4sgq52dnrli9z3sc2rllwawyc6jp6x38jf4hma65zw1z"))
-
 (define rust-zmij-1.0.17
   (crate-source "zmij" "1.0.17"
                 "0fc4x3gh0pjcq6vgpiz2zz5pw7bpx5ir71vffyagrak97zwf1ah2"))
+
+(define rust-zmij-1.0.18
+  (crate-source "zmij" "1.0.18"
+                "0522yrc7zzvhpvik8r0kg07c2hcjj87hwkd7d5yrhxhz5jnghrhr"))
 
 (define rust-zmij-1.0.19
   (crate-source "zmij" "1.0.19"
